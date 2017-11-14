@@ -1,0 +1,81 @@
+ {% extends "blog/postheader.html" %} {% block title %} Complete list of blog posts {% endblock %} {% block content %}
+<style>
+.pagination>li>a, .pagination>li>span {
+   padding: 4px 10px;
+   margin-left: 3px;
+   margin-right: 3px;
+   color: #1e4488;
+   background-color: #ECF0F1;
+   border: 0px;
+   font-size: 14px;
+}
+</style>
+
+<div class="container-fluid">
+<div class="panel panel-default">
+	<div class="panel-heading">
+<div class="dropdown">
+    <button class="btn btn-warning dropdown-toggle" type="button" data-toggle="dropdown">Filter Posts
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+{% for post1 in query_result1 %}
+      <li><a href="{{ post1.tag }}">{{ post1.tag }}</a></li>
+{% endfor %}
+    </ul>
+  </div>
+</div>
+	<div class="panel-body">
+		<div class="post-lists">
+			{% for post in users %}
+			<article>
+				<div class="row">
+					<div class="col-md-4 post-img">
+						<a href="/{{post.slug}}"> <img  src="{{ post.image }}" class="img-responsive" alt="" /> </a>
+					</div>
+					 <div class="col-md-8">
+						<header class="entry-header">
+							<div class="entry-meta"> <a href="#">  {{ post.tag }} </a> <span class="sep">/</span> <span class="entry-date">{{ post.date|date:"M d , Y" }}</span>
+								<span class="sep">/</span> <span class="comments-link"> <a href="/{{post.slug}}">Leave a comment</a> </span> </div>
+
+							<h3 class="entry-title"> <a href="/{{post.slug}}">{{ post.title }}</a> </h3>
+						</header>
+						<div class="entry-summary">
+							<p>{{ post.smalldescription }}</p>
+							<a class="read-more" href="/{{ post.slug}}">Read More</a> </div>
+
+					</div> 				</div>
+			</article>
+			{% endfor %}	
+
+<nav class="page-navigation"> 
+   <span class="page-of"></span>
+
+{% if users.has_other_pages %}
+  <ul class="page_navi clearfix">
+    {% if users.has_previous %}
+      <li class="page-numbers"><a href="?page={{ users.previous_page_number }}">Previous</a></li>
+    {% else %}
+      <li class="disabled"><span>Previous</span></li>
+    {% endif %}
+    {% for i in users.paginator.page_range %}
+      {% if users.number == i %}
+        <li><span class="page-numbers current">{{ i }}</span></li>
+      {% else %}
+        <li class="page-numbers"><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if users.has_next %}
+      <li class="page-numbers"><a href="?page={{ users.next_page_number }}">Next</a></li>
+    {% else %}
+      <li class="disabled"><span>Next</span></li>
+    {% endif %}
+  </ul>
+{% endif %}		
+</nav>
+
+			</div>
+	</div>
+</div>
+</div>
+{% endblock %}
+

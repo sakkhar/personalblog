@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title> {% block title %}{% endblock %}</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1e4488">
+  <meta name="description" content="I am Deepak Balhara an Engineering student from USICT, GGSIPU. I have been constantly working on web projects for a couple of years now.
+ I love solving real-world problems that are challenging. Ready to accept or collaborate on exciting projects anytime.">
+  <meta name="keywords" content="Deepak, Balhara, About, Blog, Computer,Science, Information, Technology,India, Geek, Programming,IT, Web,open source,
+ Design, Web Developemnt">
+  <link rel="canonical" href="https://www.deepakbalhara.me/" />
+  <meta name="author" content="deepakbalhara.me"> {% load staticfiles %}
+  <link rel="shortcut icon" href="{% static 'personal/images/favicon.gif' %}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,700,800' rel='stylesheet'
+    type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Sonsie+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="{% static 'personal/css/style.css' %}" type="text/css" />
+</head>
+
+<body style="background:#3be8b0;background-image:url('{% static 'personal/images/bg-overlay.png' %}');background-repeat: repeat;">
+  <nav class="navbar navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false">
+         <img src="{% static 'personal/images/navbar.png' %}" height="20px" width="30px" alt="+" />
+          </button>
+        <a class="navbar-brand" href="/">Deepak Balhara</a></div>
+      <div class="collapse navbar-collapse" id="mynavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About&nbsp; &nbsp; &nbsp;&nbsp; Contact</a></li>
+          <li><a href="/list-all-posts">Blog Post</a></li>
+          <li><a href="{% static 'personal/docs/resume.pdf' %}" target="_blank">Resume</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container" id="mystylin">
+    <div class="row">
+      <div class="col-md-12">
+        {% block content %} {% endblock %}
+      </div>
+    </div>
+  </div>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <span style="font-weight: bold"> Carefully handcrafted with <img src="{% static 'personal/images/heart.gif' %}" height="20px" alt="" />  
+        in India by Deepak Balhara &nbsp;</span>
+        </div>
+        <div class="col-md-6">
+          <ul><b>
+            <li>|<a href="/">Home</a>|</li>
+            <li><a href="/about">About</a>|</li>
+            <li><a href="/about">Contact</a>|</li> 
+            <li><a href="{% static 'personal/docs/resume.pdf' %}" target="_blank">Resume</a>|</li>
+            <li><a href="https://github.com/privacyismyth" target="_blank">Projects</a>|</li>
+         		<li><a href="/list-all-posts">BlogPosts</a>|</li>
+</b> </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

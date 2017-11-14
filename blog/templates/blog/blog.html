@@ -1,0 +1,47 @@
+{% extends "blog/header.html" %}
+{% block title %} Deepak Balhara - | Programmer | Open Source Enthusiast | IT Geek | {% endblock %}
+ {% block content %}
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Recent Posts</h3>
+	</div>
+	<div class="panel-body">
+		<div class="post-lists">
+			{% for post in query_results %}
+			<article>
+				<div class="row">
+					<div class="col-md-4 post-img">
+						<a href="/{{post.slug}}"> <img  src="{{ post.image }}" class="img-responsive" alt="" /> </a>
+					</div>
+					 <div class="col-md-8">
+						<header class="entry-header">
+							<div class="entry-meta"> <a href="#">{{ post.tag }} </a> <span class="sep">/</span> <span class="entry-date">{{ post.date|date:"M d , Y" }}</span>
+								<span class="sep">/</span> <span class="comments-link"> <a href="/{{post.slug}}">Leave a comment</a> </span> </div>
+
+							<h3 class="entry-title"> <a href="/{{post.slug}}">{{ post.title }}</a> </h3>
+						</header>
+						<div class="entry-summary">
+							<p>{{ post.smalldescription }}</p>
+							<a class="read-more" href="{{ post.slug }}">Read More</a>
+						 </div>
+					</div> 	
+				</div>
+			</article>
+			{% endfor %}
+			
+			<nav class="page-navigation"> <span class="page-of"></span>
+				<ul class="page_navi clearfix">
+					<li><a href="/list_all_posts" class="page-numbers">Algorithms</a></li>
+					<li><a href="/list_all_posts" class="page-numbers">Data Structures</a></li>
+					<li><a href="/list_all_posts" class="page-numbers">Java Programming</a></li>
+					<li><a href="/list_all_posts" class="page-numbers">Open Source</a></li>
+					<li><a href="/list_all_posts" class="page-numbers">Web Development</a></li>
+					<li><a href="/list_all_posts" class="page-numbers">More..</a></li>
+				</ul>
+			</nav>
+
+		</div>
+	</div>
+</div>
+{% endblock %}
